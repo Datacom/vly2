@@ -7,11 +7,11 @@ import { useRouter } from 'next/router'
 
 const { SubMenu, Item } = Menu
 const VMenu = styled(Menu)`
-border-bottom: 2px solid transparent;
+border-bottom: none;
 border-right: none;
 .ant-menu-item {
   border: none;
-  
+
 }
 
 @media screen and (max-width: 767px) {
