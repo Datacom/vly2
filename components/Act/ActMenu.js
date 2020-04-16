@@ -1,6 +1,7 @@
-import { Menu, Radio } from 'antd'
+import { Menu, Radio, Typography, Divider } from 'antd'
 import styled from 'styled-components'
 
+const { Title, Text } = Typography
 /**
  *
  * @param {*} acts - array of activities with offerOrg
@@ -53,35 +54,47 @@ const ActMenu = ({ acts, onClick }) => {
   }
 
   return (
-    <ActivityMenu>
-      <Menu
-        mode='vertical'
-        onClick={onClick}
-      >
-        <h3>Filter</h3>
-
-        <Radio.Group>
-          <Radio style={radioStyle} value={1}>
-            Individual
-          </Radio>
-          <Radio style={radioStyle} value={2}>
-            Group
-          </Radio>
-        </Radio.Group>
-
-        <Menu.ItemGroup key='topics'>
-          {Object.keys(orgs).map(key => {
-            const org = orgs[key]
-            return (
-              <Menu.Item key={org._id}>
-                {org.name} ({counts[key]})
-              </Menu.Item>
-            )
-          })}
-        </Menu.ItemGroup>
-        {/* <Menu.ItemGroup className='color'>More filters</Menu.ItemGroup> */}
-      </Menu>
-    </ActivityMenu>
+    <>
+      <ActivityMenu>
+        <li>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            borderRight: '1px solid #e8e8e8',
+            backgroundColor: 'white'
+          }}
+          >
+            <Title level={3}>Filter</Title>
+            <Text style={{ fontSize: '1rem', marginBottom: '0.75em' }}>I am searching as</Text>
+            <Radio.Group>
+              <Radio style={radioStyle} value={1}>
+                Individual
+              </Radio>
+              <Radio style={radioStyle} value={2}>
+                Group
+              </Radio>
+            </Radio.Group>
+            <Divider />
+          </div>
+        </li>
+        <Menu
+          mode='vertical'
+          onClick={onClick}
+        >
+          <Menu.ItemGroup key='topics' title='Classifications'>
+            {Object.keys(orgs).map(key => {
+              const org = orgs[key]
+              return (
+                <Menu.Item key={org._id}>
+                  {org.name} ({counts[key]})
+                </Menu.Item>
+              )
+            })}
+          </Menu.ItemGroup>
+          {/* <Menu.ItemGroup className='color'>More filters</Menu.ItemGroup> */}
+        </Menu>
+      </ActivityMenu>
+    </>
   )
 }
 
