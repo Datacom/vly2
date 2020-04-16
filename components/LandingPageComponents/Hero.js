@@ -263,7 +263,7 @@ For official information and advice around COVID-19 visit  <a href='https://covi
           <div>
             {!isAuthenticated &&
               <SignUpButton then='/flow/postSignUp' />}
-            <LearnMoreButton />
+            {/*<LearnMoreButton />*/}
           </div>
         </HeroRight>
 
