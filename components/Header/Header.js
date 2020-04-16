@@ -27,28 +27,21 @@ const MenuGrid = styled.div`
   grid-template-columns: 2fr 1fr 2fr 3rem;
   @media screen and (max-width: 767px) {
     grid-template-columns: 0fr 1fr 2fr 0.25rem;
-
   }
+  background: white;
 `
 
-const LogoContainer = styled.a`
-  margin: 0 auto;
-  @media screen and (max-width: 767px) {
-    margin: 0;
-  }
-`
-const Logo = styled.img`
-  height: 3rem;
+const Logo = styled.a`
   width: 25rem;
-  margin: 0.7rem;
-
+  margin: 7px auto;
   background-image: url('/static/vocationally_logo.svg');
   background-repeat: no-repeat;
-  background-position: left top;
+  background-position: center;
+
   @media screen and (max-width: 767px) {
     background-image: url('/static/vlogo.svg');
-
-    width: 2rem;
+    width: 3.5rem;
+    margin: 7px 0;
   }
 `
 
@@ -101,13 +94,8 @@ const Header = () => {
 
           /> */}
         </div>
-        <Link href='/landing'>
-          <LogoContainer>
-            <Logo
-              src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
-              alt='Voluntarily logo'
-            />
-          </LogoContainer>
+        <Link href='/landing' passHref={true}>
+          <Logo />
         </Link>
         <div>
           <HeaderMenu state={state} />
