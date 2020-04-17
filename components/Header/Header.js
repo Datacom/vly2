@@ -49,7 +49,9 @@ const StyledAvatar = styled(Avatar)`
   background-color: #fff;
   margin: 0.5rem 1rem 0 0;
   @media screen and (max-width: 767px) {
-    display: none;
+    // display: none;
+    position: absolute;
+    right: 75px;
   }
   .anticon-user {
     margin-right: 0px;
@@ -99,17 +101,18 @@ const Header = () => {
         </Link>
         <div>
           <HeaderMenu state={state} />
-
         </div>
         {isAuthenticated &&
           <StyledAvatar>
             <Link href='/home'>
-              <Avatar
-                size='small'
-                src={me.imgUrlSm}
-                icon='user'
-                alt='profile photo'
-              />
+              <a>
+                <Avatar
+                  size='small'
+                  src={me.imgUrlSm}
+                  icon='user'
+                  alt='profile photo'
+                />
+              </a>
             </Link>
           </StyledAvatar>}
       </MenuGrid>
