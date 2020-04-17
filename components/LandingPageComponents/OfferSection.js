@@ -25,7 +25,7 @@ const OfferContainer = styled.div`
 
 const OfferCard = styled.div`
 
-  padding: 1.5rem;
+  padding: 2rem;
 display: grid;
 gap:1.5rem;
 grid-template-columns: 1fr;
@@ -107,8 +107,7 @@ const OfferSection = () => (
 
               <h3>Find jobs</h3>
               <p>Jobs to suit any situation. Full time, temporary, seasonal or voluntary. Help support local businesses providing services during the pandemic. We can help match you with the right job in your area.</p>
-              <Button size='large' shape='round' type='primary' style={{ position: 'absolute', bottom: '0', marginBottom: 60 }}>I'm looking for work</Button>
-              <Button size='large' shape='round' type='primary' style={{ position: 'absolute', bottom: '0' }}>I'm a group looking for work</Button>
+              <Button size='large' shape='round' type='primary' style={{ position: 'absolute', bottom: '0'}}>I'm looking for work</Button>
             </figcaption>
           </OfferCard>
         </a>
@@ -122,8 +121,7 @@ const OfferSection = () => (
 
               <h3>List jobs</h3>
               <p>If you need one additional employee or a large group to cover a sudden demand we can help. Advertise any type of employment whether it's full time, temporary, seasonal or voluntary.</p>
-              <Button size='large' shape='round' type='primary' style={{ position: 'absolute', bottom: '0', marginBottom: 60 }}>I have jobs available</Button>
-              <Button size='large' shape='round' type='primary' style={{ position: 'absolute', bottom: '0' }}>I have jobs available for a group</Button>
+              <Button size='large' shape='round' type='primary' style={{ position: 'absolute', bottom: '0'}}>I have jobs available</Button>
             </figcaption>
           </OfferCard>
         </a>
