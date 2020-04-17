@@ -40,7 +40,7 @@ export default async (req, res) => {
       { $group: { _id: '$status', total: { $sum: 1 } } },
       aggregateProjection]).exec(),
     Opportunity.aggregate([
-      { $match: { status: OpportunityStatus.active } },
+      { $group: { _id: '$type', total: { $sum: 1 } } },
       aggregateProjection]).exec(),
     Organisation.aggregate([
       { $group: { _id: '$role', total: { $sum: 1 } } },
@@ -49,8 +49,9 @@ export default async (req, res) => {
 
   return Promise.all(operations).then(
     ([activityCount, interestCount, memberCount, opportunityCount, organisationCount, personCount,
-      interestsByStatus, membersByStatus, opportunitiesByType, organisationsByRole]) =>
-      res.send({
+      interestsByStatus, membersByStatus, opportunitiesByType, organisationsByRole]) => {
+      console.log(opportunitiesByType)
+        return res.send({
         Person: { total: personCount },
         Opportunity: { total: opportunityCount, type: reduceKeyValues(opportunitiesByType) },
         Organisation: { total: organisationCount, role: reduceKeyValues(organisationsByRole) },
@@ -58,5 +59,6 @@ export default async (req, res) => {
         Member: { total: memberCount, status: reduceKeyValues(membersByStatus) },
         Activity: { total: activityCount }
       })
+    }
   )
 }
