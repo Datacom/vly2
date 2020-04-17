@@ -5,12 +5,12 @@ const { ASK, OFFER } = OpportunityType
 export const OpTypeMessages = defineMessages({
   [ASK]: {
     id: 'OpportunityType.ASK',
-    defaultMessage: 'is asking for help',
+    defaultMessage: 'offering a role',
     description: 'Ask label prefix'
   },
   [OFFER]: {
     id: 'OpportunityType.OFFER',
-    defaultMessage: 'can help you',
+    defaultMessage: 'offering a role',
     description: 'Offer label prefix'
   }
 })
@@ -42,12 +42,12 @@ export const OpType = ({ type }) => {
 export const OpTypeImperativeMsg = defineMessages({
   [ASK]: {
     id: 'OpportunityType.imp.ASK',
-    defaultMessage: 'Ask for help with',
+    defaultMessage: 'Add a listing',
     description: 'Asking for help command'
   },
   [OFFER]: {
     id: 'OpportunityType.imp.OFFER',
-    defaultMessage: 'Offer to help with',
+    defaultMessage: 'Add a listing',
     description: 'Offering help command'
   }
 })
@@ -64,12 +64,12 @@ export const OpTypeEmoji = {
 export const OpTypeVerbs = defineMessages({
   [ASK]: {
     id: 'OpportunityType.verb.ASK',
-    defaultMessage: '{count, plural, one {person} other {people}} asking for help',
+    defaultMessage: '{count, plural, one {role} other {roles}}',
     description: 'Asking for help'
   },
   [OFFER]: {
     id: 'OpportunityType.verb.OFFER',
-    defaultMessage: '{count, plural, one {person} other {people}} offering to help',
+    defaultMessage: '{count, plural, one {role} other {roles}}',
     description: 'Offering help'
   }
 })
@@ -113,12 +113,12 @@ export const OpCommitment = ({ duration }) => {
 const OpTypeLocationMsg = defineMessages({
   [ASK]: {
     id: 'OpportunityType.location.ASK',
-    defaultMessage: 'Where do you need help?',
+    defaultMessage: 'Where do you have openings?',
     description: 'Asking location prompt'
   },
   [OFFER]: {
     id: 'OpportunityType.location.OFFER',
-    defaultMessage: 'Where do you want to help?',
+    defaultMessage: 'Where do you have openings?',
     description: 'Offering location prompt'
   }
 })
@@ -130,12 +130,12 @@ export const OpTypeLocationPrompt = ({ type }) => {
 const OpTypeDateTitleMsg = defineMessages({
   [ASK]: {
     id: 'OpportunityType.date.title.ASK',
-    defaultMessage: 'When do you need help?',
+    defaultMessage: 'When do you need people?',
     description: 'Asking date title'
   },
   [OFFER]: {
     id: 'OpportunityType.date.title.OFFER',
-    defaultMessage: 'When do you want to help?',
+    defaultMessage: 'When do you need people?',
     description: 'Offering date title'
   }
 })
@@ -181,12 +181,12 @@ export const OpTypeDescriptionTitle = ({ type }) => {
 const OpTypeDescriptionPromptMsg = defineMessages({
   [ASK]: {
     id: 'OpportunityType.description.prompt.ASK',
-    defaultMessage: 'Is there anything else the helpers need to know to help you? Please don’t put your personal or contact details on here, we’ll take care of that later',
+    defaultMessage: 'Is there anything else the people need to know? Please don’t put your personal or contact details on here, we’ll take care of that later',
     description: 'Asking description prompt'
   },
   [OFFER]: {
     id: 'OpportunityType.description.prompt.OFFER',
-    defaultMessage: 'Is there anything else you need to tell the people asking for help? Please don’t put personal or contact details here, we’ll take care of that later.',
+    defaultMessage: 'Is there anything else the people need to know? Please don’t put personal or contact details here, we’ll take care of that later.',
     description: 'Offering description prompt'
   }
 })

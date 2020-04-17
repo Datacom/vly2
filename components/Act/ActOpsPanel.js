@@ -1,4 +1,5 @@
 import OpListSmall from '../Op/OpListSmall'
+import { Role } from '../../server/services/authorize/role'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import ReduxLoading from '../Loading'
@@ -14,12 +15,16 @@ const { ASK, OFFER } = OpportunityType
 export const ActOpsPanel = ({ act, type, limit }) => {
   const opportunities = useSelector(state => state.opportunities.data)
 
-  const loadingState = useSelector(state => ({
-    sync: state.opportunities.sync,
-    syncing: state.opportunities.syncing,
-    loading: state.opportunities.loading,
-    error: state.opportunities.error
-  }))
+  const loadingState = useSelector(state => (
+    {
+      sync: state.opportunities.sync,
+      syncing: state.opportunities.syncing,
+      loading: state.opportunities.loading,
+      error: state.opportunities.error,
+    }
+  ))
+
+  const roles = useSelector(state => state.session.me.role || [])
 
   console.log('opportunities', opportunities);
 
@@ -41,6 +46,8 @@ export const ActOpsPanel = ({ act, type, limit }) => {
   if (showMore) ops = ops.slice(0, limit)
   return (
     <>
+      {opportunities.length === 0 && <Alert message={<OpTypeNoResults type={type} />} type='info' showIcon />}
+
       <OpSectionGrid>
         <h2>
           <div id='left_column'>
@@ -66,26 +73,30 @@ export const ActOpsPanel = ({ act, type, limit }) => {
               </Button>
             </Link>}
           <Spacer />
-          {type === ASK &&
+          {(roles.length && (roles.includes(Role.ACTIVITY_PROVIDER)) || roles.includes(Role.OPPORTUNITY_PROVIDER)) &&
             <>
-              <p style={{ marginBottom: '1rem' }}>
-                <FormattedMessage
-                  id='ActOpsPanel.prompt.OpAddAskBtn'
-                  defaultMessage="Can't see anyone who can help you?"
-                />
-              </p>
-              <OpAddAskBtn actid={act._id} />
-            </>}
-          {type === OFFER &&
-            <>
-              <p style={{ marginBottom: '1rem' }}>
-                <FormattedMessage
-                  id='ActOpsPanel.prompt.OpAddOfferBtn'
-                  defaultMessage="Can't see anyone needing your help?"
-                />
-              </p>
-              <OpAddOfferBtn actid={act._id} />
-            </>}
+              {type === ASK &&
+                <>
+                  <p style={{ marginBottom: '1rem' }}>
+                    <FormattedMessage
+                      id='ActOpsPanel.prompt.OpAddAskBtn'
+                      defaultMessage="Can't see any listings?"
+                    />
+                  </p>
+                  <OpAddAskBtn actid={act._id} />
+                </>}
+              {type === OFFER &&
+                <>
+                  <p style={{ marginBottom: '1rem' }}>
+                    <FormattedMessage
+                      id='ActOpsPanel.prompt.OpAddOfferBtn'
+                      defaultMessage="Can't see any listings?"
+                    />
+                  </p>
+                  <OpAddOfferBtn actid={act._id} />
+                </>}
+            </>
+          }
         </div>
       </OpSectionGrid>
     </>
