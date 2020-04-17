@@ -13,42 +13,42 @@ const menuItems = [
   {
     key: 'home',
     show: [AUTH, VOLUNTEER, ADMIN],
-    href: '/home',
+    href: '/landing',
     text:
-  <FormattedMessage
-    id='HeaderMenu.home'
-    defaultMessage='Home'
-  />
+      <FormattedMessage
+        id='HeaderMenu.home'
+        defaultMessage='Home'
+      />
   },
   {
     key: 'acts_ask',
-    show: [],
+    show: [ANON, AUTH, VOLUNTEER, ADMIN],
     href: '/a/ask',
     text:
-  <FormattedMessage
-    id='HeaderMenu.acts_ask'
-    defaultMessage='Ask for help'
-  />
+      <FormattedMessage
+        id='HeaderMenu.acts_ask'
+        defaultMessage='Find Jobs'
+      />
   },
   {
     key: 'acts_offer',
     show: [],
     href: '/a/offer',
     text:
-  <FormattedMessage
-    id='HeaderMenu.acts_offer'
-    defaultMessage='Offer to help'
-  />
+      <FormattedMessage
+        id='HeaderMenu.acts_offer'
+        defaultMessage='Offer to help'
+      />
   },
   {
     key: 'habout',
     show: [],
     href: 'https://blog.voluntarily.nz',
     text:
-  <FormattedMessage
-    id='HeaderMenu.about'
-    defaultMessage='About'
-  />
+      <FormattedMessage
+        id='HeaderMenu.about'
+        defaultMessage='About'
+      />
   },
   {
     key: 'admin',
@@ -80,20 +80,20 @@ const menuItems = [
     show: [ANON],
     href: '/home',
     text:
-  <FormattedMessage
-    id='HeaderMenu.sign-in'
-    defaultMessage='Sign in'
-  />
+      <FormattedMessage
+        id='HeaderMenu.sign-in'
+        defaultMessage='Sign in'
+      />
   },
   {
     key: 'hsignoff',
     show: [AUTH, VOLUNTEER, ADMIN],
     href: '/auth/sign-off',
     text:
-  <FormattedMessage
-    id='HeaderMenu.sign-out'
-    defaultMessage='Sign out'
-  />
+      <FormattedMessage
+        id='HeaderMenu.sign-out'
+        defaultMessage='Sign out'
+      />
   }
 ]
 
