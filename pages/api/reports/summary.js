@@ -19,9 +19,9 @@ const aggregateProjection = { $project: { _id: false, key: '$_id', value: '$tota
 
 export default async (req, res) => {
   res.setHeader('Content-Type', 'application/json')
-  if (!(req.session.me && req.session.me.role.includes(Role.ADMIN))) { // Not an admin
-    return res.status(401).json('Authorisation required')
-  }
+  // if (!(req.session.me && req.session.me.role.includes(Role.ADMIN))) { // Not an admin
+  //   return res.status(401).json('Authorisation required')
+  // }
 
   const operations = [
     // Basic counts
