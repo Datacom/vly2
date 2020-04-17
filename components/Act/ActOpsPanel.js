@@ -73,14 +73,14 @@ export const ActOpsPanel = ({ act, type, limit }) => {
               </Button>
             </Link>}
           <Spacer />
-          {(roles.length && roles.includes(Role.OPPORTUNITY_PROVIDER)) &&
+          {(roles.length && (roles.includes(Role.ACTIVITY_PROVIDER)) || roles.includes(Role.OPPORTUNITY_PROVIDER)) &&
             <>
               {type === ASK &&
                 <>
                   <p style={{ marginBottom: '1rem' }}>
                     <FormattedMessage
                       id='ActOpsPanel.prompt.OpAddAskBtn'
-                      defaultMessage="Can't see anyone who can help you?"
+                      defaultMessage="Can't see any listings?"
                     />
                   </p>
                   <OpAddAskBtn actid={act._id} />
@@ -90,7 +90,7 @@ export const ActOpsPanel = ({ act, type, limit }) => {
                   <p style={{ marginBottom: '1rem' }}>
                     <FormattedMessage
                       id='ActOpsPanel.prompt.OpAddOfferBtn'
-                      defaultMessage="Can't see anyone needing your help?"
+                      defaultMessage="Can't see any listings?"
                     />
                   </p>
                   <OpAddOfferBtn actid={act._id} />

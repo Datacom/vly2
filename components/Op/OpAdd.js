@@ -45,7 +45,7 @@ export const OpAddAskBtn = ({ actid }) => {
       <Button type='primary' shape='round' size='large'>
         <FormattedMessage
           id='OpAdd.newAsk'
-          defaultMessage='Ask for help'
+          defaultMessage='Add a listing'
           description='Button to create a new Ask opportunity used on multiple pages'
         />
       </Button>
