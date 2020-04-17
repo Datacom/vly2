@@ -150,7 +150,7 @@ class ActDetailForm extends Component {
           description='opportunity Title label in ActDetail Form'
         />
         &nbsp;
-        <Tooltip title="Choose something interesting like 'we want to build robots' ">
+        <Tooltip title="Choose something clear like 'Delivery Driver' ">
           <Icon type='question-circle-o' />
         </Tooltip>
       </span>
@@ -163,7 +163,7 @@ class ActDetailForm extends Component {
           defaultMessage='Subtitle'
           description='activity Subtitle label in ActDetail Form'
         />{' '}
-        <Tooltip title="Choose something interesting like 'we want to build robots' ">
+        <Tooltip title="Add more interesting information like 'Truck provided' ">
           <Icon type='question-circle-o' />
         </Tooltip>
       </span>
@@ -176,7 +176,7 @@ class ActDetailForm extends Component {
           description='activity Commitment label in ActDetail Form'
         />
         &nbsp;
-        <Tooltip title='How much time overall is likely to be required for the activity?'>
+        <Tooltip title='If this full time, part time or 4 hours a week?'>
           <Icon type='question-circle-o' />
         </Tooltip>
       </span>
@@ -191,7 +191,7 @@ class ActDetailForm extends Component {
           description='activity resource label in ActDetail Form'
         />
         &nbsp;
-        <Tooltip title='Give a long description of what is needed and what people will be doing.'>
+        <Tooltip title='Give a long description of the role and what people will be doing.'>
           <Icon type='question-circle-o' />
         </Tooltip>
       </span>
@@ -245,7 +245,7 @@ class ActDetailForm extends Component {
           description='activity Image URL label in ActDetailForm'
         />
         &nbsp;
-        <Tooltip title='Choose a picture that illustrates the activity, you can upload a picture or link to something on the Internet, Animated Gifs too.'>
+        <Tooltip title='Choose a picture that illustrates the job, you can upload a picture or link to something on the Internet, Animated Gifs too.'>
           <Icon type='question-circle-o' />
         </Tooltip>
       </span>
@@ -318,14 +318,14 @@ class ActDetailForm extends Component {
         <PageTitle>
           <h1>
             <FormattedMessage
-              defaultMessage='Create an Activity'
+              defaultMessage='Create job listing'
               id='actDetailForm.Title.New'
               description='actdetailform title'
             />
           </h1>
           <h5>
             <FormattedMessage
-              defaultMessage='Create a template that teachers can use to bring in volunteers'
+              defaultMessage='List a new job. Be sure to fill in all required fields (marked with a red star).'
               id='actDetailForm.Subtitle'
               description='actdetailform subtitle'
             />
@@ -337,7 +337,7 @@ class ActDetailForm extends Component {
               <TitleContainer>
                 <h3>
                   <FormattedMessage
-                    defaultMessage='About this Activity'
+                    defaultMessage='Job details'
                     id='actDetailForm.AboutSection.subtitle'
                     description='first section subtitle on actdetailform that asks for title and about details'
                   />
@@ -345,7 +345,7 @@ class ActDetailForm extends Component {
               </TitleContainer>
               <p>
                 <FormattedMessage
-                  defaultMessage='Attract people to this activity with a snappy name, use the subtitle to layout the basic idea.'
+                  defaultMessage='Provide job information. Attract people to this job with a clear title, use the subtitle to layout the basic idea of the role.'
                   id='actDetailForm.AboutSection.instructions'
                   description='first section instructions on actdetailform that asks for title and about details'
                 />
@@ -401,7 +401,7 @@ class ActDetailForm extends Component {
               <TitleContainer>
                 <h3>
                   <FormattedMessage
-                    defaultMessage='Topics'
+                    defaultMessage='Classification'
                     id='actDetailForm.TagsSection.subtitle'
                     description='Tag section subtitle on actdetailform that asks for topics and outcomes'
                   />
@@ -409,7 +409,7 @@ class ActDetailForm extends Component {
               </TitleContainer>
               <p>
                 <FormattedMessage
-                  defaultMessage='Make this activity searchable by classifying it with subject, age group, and technology keywords.'
+                  defaultMessage='Make this listing searchable by classifying it with subject, skills, and technology keywords.'
                   id='actDetailForm.TagsSection.instructions'
                   description='Tag section instructions on actdetailform that asks for title and about details'
                 />
@@ -441,9 +441,9 @@ class ActDetailForm extends Component {
                 <FormattedMessage
                   defaultMessage='What is the time commitment?
                     How many people do you need to help?
-                    What skills might they require?
+                    What skills or qualifications might they require?
                     Do you need a special space or location to work in?
-                    Does this activity require special equipment?'
+                    Does this job require special equipment or knowledge?'
                   id='actDetailForm.ResourceSection.instructions'
                   description='section instructions on actdetail form for resources'
                 />
@@ -479,7 +479,7 @@ class ActDetailForm extends Component {
                   >
                     <FormattedMessage
                       id='act.detail.volunteercount'
-                      defaultMessage='Total number of volunteers required'
+                      defaultMessage='Total number of roles available'
                       description='label for field volunteer numbers required'
                     />
                   </Radio>
@@ -492,75 +492,7 @@ class ActDetailForm extends Component {
                     />
                   )}
                 </Form.Item>
-                <Form.Item>
-                  <Radio
-                    name='volunteer'
-                    value='option2'
-                    checked={this.state.option2}
-                    onClick={this.actRadio.bind(this, 'option2')}
-                  >
-                    <FormattedMessage
-                      id='act.detailform.volunteerratio'
-                      defaultMessage='Number of students per volunteer'
-                      description='label for field number of students per volunteer'
-                    />
-                  </Radio>
-                  {getFieldDecorator('volunteerPerStudent')(
-                    <Input
-                      name='resourceinput2'
-                      onChange={this.handleChange}
-                      disabled={this.state.input2Disabled}
-                      placeholder='Specify the number of students'
-                    />
-                  )}
-                </Form.Item>
-                <Form.Item label={actSpace}>
-                  {getFieldDecorator(ActivityFields.SPACE)(
-                    <Input name='space' placeholder='40 sqm' />
-                  )}
-                </Form.Item>
               </ShortInputContainer>
-            </InputContainer>
-          </FormGrid>
-
-          <Divider />
-
-          <FormGrid>
-            <DescriptionContainer>
-              <TitleContainer>
-                <h3>
-                  <FormattedMessage
-                    id='actDetailForm.addEquipment.title'
-                    defaultMessage='Do you need any equipment or materials for this activity? (Optional)'
-                    description='subtitle for add equipment section in act detail form'
-                  />
-                </h3>
-              </TitleContainer>
-              <p>
-                <FormattedMessage
-                  id='actDetailForm.addEquipment.instructions'
-                  defaultMessage='Let volunteers and businesses know what you need to make the opportunity happen.'
-                  description='instructions to add equipment in act detail form'
-                />
-              </p>
-            </DescriptionContainer>
-            <InputContainer>
-              <MediumInputContainer>
-                <Form.Item label={actEquipment}>
-                  <DynamicFieldSet
-                    form={this.props.form}
-                    field='equipment'
-                    placeholder='Equipment description'
-                    validationMessage={
-                      <FormattedMessage
-                        id='actDetailForm.addEquipment.validationMessage'
-                        defaultMessage='Add an equipment or remove field'
-                      />
-                    }
-                    addItemText='Add equipment'
-                  />
-                </Form.Item>
-              </MediumInputContainer>
             </InputContainer>
           </FormGrid>
 
@@ -580,7 +512,7 @@ class ActDetailForm extends Component {
               <p>
                 <FormattedMessage
                   id='actDetailForm.addImageSection.instructions'
-                  defaultMessage="Activities with illustrations get more responses. If you don't have a photo click suggest and we can provide one based on the tags."
+                  defaultMessage="Jobs with images get more responses. If you don't have a photo click suggest and we can provide one based on the tags."
                   description='instructions for add image section in actdetail form'
                 />
               </p>
@@ -618,7 +550,7 @@ class ActDetailForm extends Component {
               <p>
                 <FormattedMessage
                   id='actDetailForm.addDocumentsSection.instructions'
-                  defaultMessage='Upload any PDF documents relativant to the activity that you would like volunteers to refer to (such as a Health and Safety pdf)'
+                  defaultMessage='Upload any PDF documents relevant to the job that you would like applicants to refer to (such as qualifications or a Health and Safety pdf)'
                   description='instructions for instructions section in actdetail form'
                 />
               </p>
@@ -647,7 +579,7 @@ class ActDetailForm extends Component {
                 <h3>
                   <FormattedMessage
                     id='actDetailForm.SaveActivityButton'
-                    defaultMessage='Save Activity'
+                    defaultMessage='Save job listing'
                     description='Subtitle for save activity section on ActDetailForm'
                   />
                 </h3>
@@ -655,7 +587,7 @@ class ActDetailForm extends Component {
               <p>
                 <FormattedMessage
                   id='act.SaveInstructions'
-                  defaultMessage='Save as draft will allow you to preview the activity while Publish will make it available to everyone to view.'
+                  defaultMessage='Save as draft will allow you to preview the new job listing while Publish will make it available to everyone to view.'
                   description='Instructions for save and publish on activity details form'
                 />
               </p>
