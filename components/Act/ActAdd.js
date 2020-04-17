@@ -16,7 +16,7 @@ const ActAdd = ({ roles }) => {
         <Button type='primary' block shape='round' size='large'>
           <FormattedMessage
             id='act.new'
-            defaultMessage='New Template'
+            defaultMessage='New Role'
             description='Button to create a new activity on Landing page'
           />
         </Button>
