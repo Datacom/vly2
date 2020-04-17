@@ -27,13 +27,20 @@ export const NavigationH = ({ items }) => {
       style={{ float: 'right' }}
       selectedKeys={[activeItem]}
     >
-      {items.map(item => (
-        <Menu.Item key={item.key}>
-          <Link key={item.href} href={item.href}>
-            <a>{item.text}</a>
-          </Link>
-        </Menu.Item>
-      ))}
+      {items.map(item => {
+        let href = item.href;
+        if(item.key === 'hsignin') {
+          href = `/auth/sign-thru?redirect=${location.pathname}`;
+        }
+
+        return (
+          <Menu.Item key={item.key}>
+            <Link key={item.href} href={href}>
+              <a>{item.text}</a>
+            </Link>
+          </Menu.Item>
+        )
+      })}
 
     </VMenu>
   )

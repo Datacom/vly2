@@ -1,4 +1,4 @@
-import { message } from 'antd'
+import { message, Alert } from 'antd'
 import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 import { useState, useCallback } from 'react'
@@ -130,20 +130,25 @@ export const ActDetailPage = ({
   }
 
   const canManage = isOwner || isAdmin || isOrgAdmin
-
+  console.log('tab', tab, isNew, me)
   if (tab === 'edit') {
+    const isAnonymous = me.role.includes(Role.ANON);
     return (
       <FullPage>
         <Helmet>
           <title>Edit {isNew ? 'Activity' : act.name} - Voluntarily</title>
         </Helmet>
-        <ActDetailForm
-          act={act}
-          me={me}
-          onSubmit={handleSubmit}
-          onCancel={handleCancel}
-          existingTags={tags.data}
-        />
+        {isAnonymous ? (
+          <Alert showIcon type='error' message='Please sign in above to be able to list a job' />
+        ) : (
+          <ActDetailForm
+            act={act}
+            me={me}
+            onSubmit={handleSubmit}
+            onCancel={handleCancel}
+            existingTags={tags.data}
+          />
+        )}
       </FullPage>)
   }
   return (
