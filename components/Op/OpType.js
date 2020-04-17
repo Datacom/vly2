@@ -57,8 +57,8 @@ export const OpTypeImperative = ({ type }) => {
 }
 
 export const OpTypeEmoji = {
-  [ASK]: '🙋',
-  [OFFER]: '💁🏻'
+  [ASK]: '',
+  [OFFER]: ''
 }
 
 export const OpTypeVerbs = defineMessages({
@@ -198,7 +198,7 @@ export const OpTypeDescriptionPrompt = ({ type }) => {
 const OpTypeNoResultsMsg = defineMessages({
   [ASK]: {
     id: 'OpportunityType.prompt.notfound.ASK',
-    defaultMessage: 'Waiting for someone to ask for help.',
+    defaultMessage: 'There are currently no locations available to apply for.',
     description: 'Message to display when an activity does not have any archived opportunities'
   },
   [OFFER]: {
