@@ -113,7 +113,7 @@ const OfferSection = () => (
         </a>
       </Link>
 
-      <Link href='/a/ask'>
+      <Link href='/act/new'>
         <a>
           <OfferCard>
 
