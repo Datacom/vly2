@@ -29,11 +29,12 @@ const MenuGrid = styled.div`
     grid-template-columns: 0fr 1fr 2fr 0.25rem;
   }
   background: white;
+  height: 100%;
 `
 
 const Logo = styled.a`
-  width: 25rem;
-  margin: 7px auto;
+  width: 13rem;
+  margin: 8px auto;
   background-image: url('/static/vocationally_logo.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -41,7 +42,7 @@ const Logo = styled.a`
   @media screen and (max-width: 767px) {
     background-image: url('/static/vlogo.svg');
     width: 3.5rem;
-    margin: 7px 0;
+    margin: 8px 0;
   }
 `
 
@@ -61,6 +62,15 @@ const StyledAvatar = styled(Avatar)`
     margin-right: 0px;
   }
 `
+
+const LogoContainer = styled.div`
+  height: 100%;
+`
+
+const HeaderMenuContainer = styled.div`
+  height: 100%;
+`
+
 // eslint-disable-next-line no-unused-vars
 const Header = () => {
   const intl = useIntl()
@@ -68,15 +78,14 @@ const Header = () => {
   const isAuthenticated = useSelector(state => state.session.isAuthenticated)
   let notice = intl.formatMessage({ id: 'notice', defaultMessage: 'none' })
   if (notice === 'none') notice = '' // wipe notice if its set to none
-  const height = '56px'
   const headerColor = isAuthenticated ? me.role.includes(Role.SUPPORT) ? 'solid 10px #faad14' : me.role.includes(Role.ADMIN) ? 'solid 10px #7826ff' : 'none' : 'none'
   const headerStyle = {
     borderTop: headerColor,
     position: 'fixed',
-    height,
+    height: 56,
     zIndex: 10,
     width: '100%',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   }
 
   let state = MenuShowState.ANON
@@ -96,8 +105,9 @@ const Header = () => {
 
           /> */}
         </div>
+        
         <Link href='/landing' passHref={true}>
-          <Logo />
+            <Logo />
         </Link>
         <div>
           <HeaderMenu state={state} />

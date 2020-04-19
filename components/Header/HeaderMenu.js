@@ -99,6 +99,6 @@ const menuItems = [
 
 const filterMenu = (state) => menuItems.filter(l => l.show.includes(state))
 export const HeaderMenu = ({ state }) =>
-  <Navigation items={filterMenu(state)} />
+  <Navigation style={{ height: '100%' }} items={filterMenu(state)} />
 
 export default HeaderMenu
