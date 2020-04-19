@@ -22,10 +22,10 @@ export const Landing = ({ isAuthenticated }) => (
 
     <FullPage>
       <OfferSection />
+      {/* <Divider /> */}
+      {/* <GiveSupportSection />
       <Divider />
-      <GiveSupportSection />
-      <Divider />
-      <TakeSupportSection />
+      <TakeSupportSection /> */}
       {/*
       <OpListSection
         store={props.store}
