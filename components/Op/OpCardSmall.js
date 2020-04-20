@@ -91,7 +91,7 @@ const OpCardSmall = ({ op }) => {
       <RegisterInterestMessageForm
         id='acceptRegisterInterestForm'
         title={`Apply for position: ${op.name}`}
-        prompt={'Please provide a message to support your application.'}
+        prompt={'Provide a message to support your application:'}
         showTerms={false}
         onSubmit={handleAcceptSubmit}
         visible={showAcceptForm}

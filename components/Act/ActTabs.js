@@ -88,10 +88,12 @@ export const ActTabs = ({ act, onChange, canManage, canEdit, defaultTab }) => (
       <ActOpsPanel act={act} type={ASK} />
     </TabPane>
     <TabPane tab={actDocumentsTab} key='documents'>
-      <ActResourcesPanel act={act} />
+      {/* <ActResourcesPanel act={act} /> */}
+      <div>There are currently no additional documents available.</div>
     </TabPane>
     <TabPane tab={actLearningTab} key='learning'>
-      <ActResourcesPanel act={act} />
+      {/* <ActResourcesPanel act={act} /> */}
+      <div>There are currently no learning resources available.</div>
     </TabPane>
 
     {/*
