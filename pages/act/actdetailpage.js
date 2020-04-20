@@ -130,7 +130,11 @@ export const ActDetailPage = ({
   }
 
   const canManage = isOwner || isAdmin || isOrgAdmin
-  console.log('tab', tab, isNew, me)
+  console.log('extra_debuging_b', {
+    tab,
+    isNew,
+    me,
+  })
   if (tab === 'edit') {
     const isAnonymous = me.role.includes(Role.ANON);
     return (
@@ -171,6 +175,13 @@ ActDetailPage.getInitialProps = async ({ store, query }) => {
   const me = store.getState().session.me
   const isNew = query && query.new && query.new === 'new'
   const actExists = !!(query && query.id) // !! converts to a boolean value
+
+  console.log('extra_debuging_a', {
+    isAuthenticated,
+    me,
+    isNew,
+    actExists,
+  })
 
   if (isNew) {
     await Promise.all([
