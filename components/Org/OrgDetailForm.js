@@ -114,6 +114,19 @@ class OrgDetailForm extends Component {
         </Tooltip>
       </span>
     )
+    const orgNzbnNumber = (
+      <span>
+        <FormattedMessage
+          id='orgNzbnNumber'
+          defaultMessage='NZBN Number'
+          description='organisation NZBN Number label in OrgDetails Form'
+        />
+        &nbsp;
+        <Tooltip title='Enter the NZBN Number of your business'>
+          <Icon type='question-circle-o' />
+        </Tooltip>
+      </span>
+    )
     const orgImgUrl = (
       <FormattedMessage
         id='orgImgUrl'
@@ -359,6 +372,22 @@ class OrgDetailForm extends Component {
                       }
                     ]
                   })(<Input placeholder='Organisation Domain' />)}
+                </Form.Item>
+              </ShortInputContainer>
+              <ShortInputContainer>
+                <Form.Item label={orgNzbnNumber}>
+                  <Input placeholder='NZBN' />
+                  <Button
+                    type='primary'
+                    size='large'
+                    shape='round'
+                  >
+                    <FormattedMessage
+                      id='org.businessConnect'
+                      defaultMessage='Populate using Business Connect'
+                      description='Label for Business Connect button on organisation details form'
+                    />
+                  </Button>
                 </Form.Item>
               </ShortInputContainer>
               <Form.Item label={orgImgUrl}>

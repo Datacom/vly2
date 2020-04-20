@@ -67,7 +67,7 @@ const Footer = () => (
               <FormattedMessage
                 id='footer.credit'
                 defaultMessage='Vocationally is a job matching platform designed to help individuals, businesses and organisations match up job vacancies with job hunters.
-During national emergencies such as a pandemic there are large numberts of workers displaced as jobs are no longer required, but likewise many new jobs are created.
+During national emergencies such as a pandemic there are large numbers of workers displaced as jobs are no longer required, but likewise many new jobs are created.
 Vocationally assists with this problem by allowing job matching on an individual or group basis, keeping as many people employed as possible.'
               />
             </P>
