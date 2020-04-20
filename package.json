@@ -33,6 +33,7 @@
     "posttest-all": "rimraf .test"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.0.6",
     "@babel/core": "^7.8.4",
     "@babel/polyfill": "^7.8.3",
     "@casl/ability": "^3.4.0",

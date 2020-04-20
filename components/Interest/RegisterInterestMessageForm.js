@@ -1,8 +1,10 @@
 
-import { Button, Icon, Modal } from 'antd'
+import { Button, Modal, Icon, Upload, message } from 'antd'
+import styled from 'styled-components';
 import TextArea from 'antd/lib/input/TextArea'
 import { FormattedMessage } from 'react-intl'
 import { useState } from 'react'
+import { UploadOutlined } from '@ant-design/icons';
 /* when person clicks I'm Interested a popup form shows a text field
  and check box for accept terms, click the terms string to open terms in another window
  OK on the text box completes the interested record with the given message
@@ -12,8 +14,30 @@ import { useState } from 'react'
  Form calls back onSubmit false if cancelled and form fields in ok.
  */
 
-const showStaySafe = true
-const maxMessageLength = 400
+const showStaySafe = true;
+const maxMessageLength = 400;
+
+const uploadProps = {
+  name: 'file',
+  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+  headers: {
+    authorization: 'authorization-text',
+  },
+  onChange(info) {
+    if (info.file.status !== 'uploading') {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === 'done') {
+      message.success(`${info.file.name} file uploaded successfully`);
+    } else if (info.file.status === 'error') {
+      message.error(`${info.file.name} file upload failed.`);
+    }
+  },
+};
+
+const UploadArea = styled.div`
+  margin-bottom: 30px;
+`
 
 const staySafeUrl = 'https://www.police.govt.nz/advice-services/cybercrime-and-internet/internet-safety'
 export const RegisterInterestMessageForm = ({
@@ -49,6 +73,14 @@ export const RegisterInterestMessageForm = ({
         </Button>
       ]}
     >
+      <UploadArea>
+        <p>Upload a CV or cover letter:</p>
+        <Upload { ...uploadProps }>
+          <Button>
+            <UploadOutlined /> Click to upload
+          </Button>
+        </Upload>
+      </UploadArea>
       <p>{prompt}</p>
       <TextArea
         rows='3'
