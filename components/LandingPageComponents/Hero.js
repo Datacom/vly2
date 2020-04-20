@@ -99,6 +99,8 @@ const AwesomeImage = styled.img`
   object-fit: contain;
   background-color: white;
 
+  max-width: 800px;
+
   @media screen and (min-width: 1282px) and (max-width: 1921px) {
     width: 28rem;
     height: 28rem;
@@ -137,6 +139,8 @@ const HeroRight = styled.div`
   display: grid;
   align-self: center;
 
+  margin-left: 2rem;
+
   @media screen and (max-width: 768px) {
     margin: 1rem 1rem 0 1rem;
   }
@@ -155,10 +159,10 @@ line-height: 1.7;
   }
 @media screen and (min-width: 1026px) and (max-width: 1281px) {
   font-size:2.5rem;
-  p {
-   width: 60%;
-  line-height: 1.5;
- }
+  // p {
+  //   width: 60%;
+  //   line-height: 1.5;
+  // }
   }
   @media screen and (min-width: 768px) and (max-width: 1025px) {
     font-size:2.5rem;

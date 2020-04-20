@@ -6,17 +6,29 @@ import { useWindowSize } from '../../lib/useWindowSize'
 import { useRouter } from 'next/router'
 
 const { SubMenu, Item } = Menu
-const VMenu = styled(Menu)`
-border-bottom: none;
-border-right: none;
-.ant-menu-item {
-  border: none;
-}
 
-@media screen and (max-width: 767px) {
-    // display: none;
+const VMenu = styled(Menu)`
+  border-bottom: none;
+  border-right: none;
+
+  .ant-menu-item {
+    border: none;
+    height: 100%;
+  }
+
+  @media screen and (max-width: 767px) {
+      // display: none;
   }
 `
+
+const LinkText = styled.a`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4px;
+`
+
 export const NavigationH = ({ items }) => {
   const router = useRouter()
   const activeItem = router.pathname.slice(1)
@@ -24,7 +36,7 @@ export const NavigationH = ({ items }) => {
     <VMenu
       theme='light'
       mode='horizontal'
-      style={{ float: 'right' }}
+      style={{ float: 'right', height: 56 }}
       selectedKeys={[activeItem]}
     >
       {items.map(item => {
@@ -36,7 +48,9 @@ export const NavigationH = ({ items }) => {
         return (
           <Menu.Item key={item.key}>
             <Link key={item.href} href={href}>
-              <a>{item.text}</a>
+              <LinkText>
+                <a>{item.text}</a>
+              </LinkText>
             </Link>
           </Menu.Item>
         )
