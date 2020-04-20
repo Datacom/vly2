@@ -76,4 +76,4 @@ MyApp.getInitialProps = async (appContext) => {
     ...appProps // page props can override the earlier props
   }
 }
-export default withRedux(makeStore, { debug: false })(MyApp)
+export default withRedux(makeStore, { debug: true })(MyApp)
