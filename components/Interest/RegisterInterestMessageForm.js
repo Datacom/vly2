@@ -15,7 +15,7 @@ import { useState } from 'react'
 const showStaySafe = true
 const maxMessageLength = 400
 
-const staySafeUrl = 'https://voluntarily.atlassian.net/servicedesk/customer/portal/2/article/236486718'
+const staySafeUrl = 'https://www.police.govt.nz/advice-services/cybercrime-and-internet/internet-safety'
 export const RegisterInterestMessageForm = ({
   visible,
   onSubmit,
