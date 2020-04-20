@@ -46,7 +46,7 @@ export const ActOpsPanel = ({ act, type, limit }) => {
   if (showMore) ops = ops.slice(0, limit)
   return (
     <>
-      {opportunities.length === 0 && <Alert message={<OpTypeNoResults type={type} />} type='info' showIcon />}
+      {/*{opportunities.length === 0 && <Alert message={<OpTypeNoResults type={type} />} type='info' showIcon />}*/}
 
       <OpSectionGrid>
         <h2>
