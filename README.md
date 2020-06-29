@@ -1,3 +1,27 @@
+# Vocationally Readme
+
+#### Deployment Information
+Deployed via ansible onto marsapps-poc1
+
+```
+Host mars-bastion
+     Hostname stronghold.marscloud.co.nz
+     User owenb
+     IdentityFile ~/.ssh/id_rsa
+     IdentitiesOnly yes
+     ForwardAgent yes
+     ControlPath ~/.ssh/cm-%r@%h:%p
+     ControlMaster auto
+     ControlPersist 10m
+
+Host marsapps-poc1
+  Hostname ip-10-1-1-174.ap-southeast-2.compute.internal
+  IdentityFile ~/.ssh/marsapps.pem
+  User ubuntu
+  ProxyCommand ssh -W %h:%p mars-bastion
+```
+
+# Original Voluntarily Readme Below
 <p align="center">
   <img src="https://i.imgur.com/aFjiS0u.png">
 </p>
